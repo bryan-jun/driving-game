@@ -1,3 +1,24 @@
 * {
   background-color: #7cfc00;
 }
+
+#car {
+  width: 200px;
+  height: 100px;
+}
+
+.north {
+  transform: rotate(270deg);
+}
+
+.south {
+  transform: rotate(90deg);
+}
+
+.west {
+  transform: rotate(180deg);
+}
+
+.east {
+  transform: rotate(0deg);
+}
