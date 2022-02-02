@@ -1,5 +1,7 @@
 var car1 = {
-  direction: 'east'
+  direction: 'east',
+  x: null,
+  y: null
 };
 
 document.addEventListener('keydown', keyPress, false);
@@ -32,4 +34,18 @@ function keyPress(event) {
       break;
 
   }
+
+  if (event.code === 'Space') {
+    setInterval(update, 16);
+
+  }
+
+}
+
+function update() {
+  var position = carPic.getBoundingClientRect();
+  car1.x = position.left;
+  carPic.style.setProperty('left', car1.x + 10 + 'px');
+  car1.x += 1;
+
 }
