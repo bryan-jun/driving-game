@@ -1,7 +1,8 @@
 var car1 = {
   direction: 'east',
   x: null,
-  y: null
+  y: null,
+  start: false
 };
 
 document.addEventListener('keydown', keyPress, false);
@@ -36,8 +37,14 @@ function keyPress(event) {
   }
 
   if (event.code === 'Space') {
-    setInterval(update, 16);
+    if (car1.start === false) {
+      myInterval = setInterval(update, 16);
+      car1.start = true;
+    } else if (car1.start === true) {
+      clearInterval(myInterval);
+      car1.start = false;
 
+    }
   }
 
 }
@@ -49,3 +56,6 @@ function update() {
   car1.x += 1;
 
 }
+
+var myInterval = setInterval(update, 16);
+clearInterval(myInterval);
