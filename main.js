@@ -50,10 +50,23 @@ function keyPress(event) {
 }
 
 function update() {
-  var position = carPic.getBoundingClientRect();
-  car1.x = position.left;
-  carPic.style.setProperty('left', car1.x + 10 + 'px');
-  car1.x += 1;
+
+  if (car1.direction === 'east') {
+    var position = carPic.getBoundingClientRect();
+    car1.x = position.left;
+    car1.y = position.top;
+    carPic.style.setProperty('left', car1.x + 10 + 'px');
+    car1.x += 10;
+  } else if (car1.direction === 'west') {
+    carPic.style.setProperty('left', car1.x - 10 + 'px');
+    car1.x -= 10;
+  } else if (car1.direction === 'north') {
+    carPic.style.setProperty('top', car1.y - 10 + 'px');
+    car1.y -= 10;
+  } else if (car1.direction === 'south') {
+    carPic.style.setProperty('top', car1.y + 10 + 'px');
+    car1.y += 10;
+  }
 
 }
 
